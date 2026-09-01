@@ -1,0 +1,9 @@
+id,date,user,pc,activity
+1,06/01/2010 11:00:00,u1,pc1,Connect
+2,06/01/2010 11:05:00,u1,pc1,Disconnect
+3,06/15/2010 11:00:00,u1,pc1,Connect
+4,06/15/2010 02:15:00,u2,pc9,Connect
+5,07/01/2010 11:00:00,u1,pc1,Connect
+6,07/01/2010 02:15:00,u2,pc9,Connect
+7,08/01/2010 11:00:00,u1,pc1,Connect
+8,08/01/2010 02:15:00,u2,pc9,Connect

@@ -1,0 +1,9 @@
+id,date,user,pc,url,activity
+1,06/01/2010 10:00:00,u1,pc1,https://example.com/,www visit
+2,06/01/2010 10:00:00,u2,pc2,https://example.com/,www visit
+3,06/15/2010 10:00:00,u1,pc1,https://example.com/,www visit
+4,06/15/2010 02:30:00,u2,pc9,https://wikileaks.org/,www visit
+5,07/01/2010 10:00:00,u1,pc1,https://example.com/,www visit
+6,07/01/2010 02:30:00,u2,pc9,https://wikileaks.org/,www visit
+7,08/01/2010 10:00:00,u1,pc1,https://example.com/,www visit
+8,08/01/2010 02:30:00,u2,pc9,https://wikileaks.org/,www visit

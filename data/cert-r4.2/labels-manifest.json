@@ -1,0 +1,16 @@
+{
+  "label_unit": "distinct user-day with at least one official malicious observable",
+  "labels_sha256": "de583fef256bb8414034c2244b61806a734823da55ef8b58239d078da5362223",
+  "release": "4.2",
+  "rows_by_scenario": {
+    "1": 85,
+    "2": 861,
+    "3": 20
+  },
+  "source": "CMU CERT answers.tar.bz2 detailed per-incident files",
+  "users_by_scenario": {
+    "1": 30,
+    "2": 30,
+    "3": 10
+  }
+}

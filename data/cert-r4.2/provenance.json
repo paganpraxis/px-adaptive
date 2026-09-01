@@ -1,0 +1,34 @@
+{
+  "dataset": "CERT Insider Threat Test Dataset r4.2",
+  "publisher": "Carnegie Mellon University CERT Division",
+  "record_url": "https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247",
+  "doi": "10.1184/R1/12841247.v1",
+  "license": "CC BY 4.0",
+  "retrieved_date": "2026-08-31",
+  "archives": {
+    "r4.2.tar.bz2": {
+      "official_file_id": 24856766,
+      "bytes": 4824287500,
+      "published_md5": "cf64caa378acb77cd0c608a5576d998c",
+      "verified_md5": "cf64caa378acb77cd0c608a5576d998c"
+    },
+    "answers.tar.bz2": {
+      "official_file_id": 24857828,
+      "bytes": 1254678,
+      "published_md5": "c0c96eaa06915e417504f932756f58d8",
+      "verified_md5": "c0c96eaa06915e417504f932756f58d8"
+    }
+  },
+  "extracted_for_h2": [
+    "logon.csv",
+    "http.csv",
+    "device.csv",
+    "readme.txt",
+    "license.txt"
+  ],
+  "labels": {
+    "method": "Distinct incident-actor user-days appearing in official detailed observable files",
+    "script": "scripts/build_cert_labels.py",
+    "manifest": "labels-manifest.json"
+  }
+}

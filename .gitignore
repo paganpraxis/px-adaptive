@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+runs/
+*.egg-info/
+data/cert-r4.2/downloads/
+data/cert-r4.2/raw/*.csv
+data/cert-r4.2/raw/
+data/cert-r4.2/answers/
+data/cert-r4.2/.duckdb-tmp/
+Adaptive Hybrid Insider Threat Detection with Machine Learning and Explainable AI.pdf

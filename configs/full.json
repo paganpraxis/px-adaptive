@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "profile": "full",
+  "data": {
+    "scenario": 1,
+    "excluded_scenarios": [2, 3],
+    "labels_file": "labels.csv",
+    "date_format": "%m/%d/%Y %H:%M:%S",
+    "split_date": "2010-06-30"
+  },
+  "features": {
+    "business_hour_start": 8,
+    "business_hour_end": 18,
+    "rolling_days": 7,
+    "continuous": [
+      "logon_count", "logoff_count", "distinct_pcs", "offhour_logons",
+      "session_span_minutes", "web_requests", "unique_domains",
+      "offhour_web_requests", "usb_connects", "afterhours_usb_connects"
+    ]
+  },
+  "detector": {
+    "implementation": "sklearn.ensemble.IsolationForest",
+    "n_estimators": 200,
+    "max_samples": "auto",
+    "n_jobs": -1,
+    "per_user_quantile": 0.99,
+    "threshold_refresh": "monthly_after_expand_fp_only",
+    "unseen_user_threshold": "global_training_quantile"
+  },
+  "rules": {
+    "predicates": ["wikileaks_flag", "offhour_usb_flag", "afterhours_usb_connects"],
+    "weight_grid": [0, 1, 2, 4],
+    "tuning_objective": "early_post_split_calibration_average_precision",
+    "calibration": {
+      "method": "blocked_temporal_by_cumulative_malicious_user_days",
+      "target_malicious_fraction": 0.30,
+      "boundary_policy": "whole_calendar_day_to_calibration"
+    },
+    "full_period_baseline_weights": {
+      "wikileaks_flag": 1,
+      "offhour_usb_flag": 1,
+      "afterhours_usb_connects": 1
+    },
+    "tie_break": "lowest_l1_norm_then_lexicographic"
+  },
+  "analysis": {
+    "seeds": [11, 29, 47, 71, 101, 137, 173, 211, 251, 293, 337, 383, 431, 479, 541, 599, 659, 719, 787, 857, 929, 1009, 1091, 1181, 1277, 1361, 1451, 1549, 1657, 1777],
+    "weight_grid": [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0],
+    "confirmatory_weight_range": [0.3, 0.9],
+    "percent_budgets": [1, 2, 5, 10],
+    "absolute_budgets": [10, 18, 25, 36, 50, 92, 100, 184],
+    "primary_percent": 5,
+    "equivalence_margin": 0.05,
+    "bootstrap_clusters": "user",
+    "bootstrap_replicates": 10000,
+    "interval": "BCa",
+    "alpha": 0.05,
+    "multiplicity": "Benjamini-Hochberg q=0.05 for secondary endpoints and scenarios"
+  },
+  "ablations": ["full", "no_wikileaks", "wikileaks_only"],
+  "tie_policy": {
+    "estimand": "expected precision under uniform random ordering within equal-score groups",
+    "report_bounds": true,
+    "indeterminate_if_bounds_reverse_verdict": true
+  }
+}
